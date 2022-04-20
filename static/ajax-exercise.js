@@ -14,7 +14,7 @@ function showFortune(evt) {
     }));
 }
 
-// Call the addEventListener 
+// Define the Event Listener
 document.querySelector('#get-fortune-button').addEventListener('click', showFortune);
 
 // PART 2: SHOW WEATHER
@@ -80,11 +80,12 @@ document.querySelector('#order-form').addEventListener('submit', orderMelons);
 
 function showDog(evt) {
   fetch('https://dog.ceo/api/breeds/image/random')
-    // From the Response object, get the text of the Response object
+    // From the Response object, get the JSON of the Response object
     .then(response => response.json()
-    // Assign the text form of the Response object ('data) as the innerHTML
+    // From the JSON access the value of the .message property
     .then(data => {
       const imageURL = data.message;
+      // Create a new <div></div> and <img> element and set the src for <img> the image URL
       document.querySelector('#dog-image').insertAdjacentHTML('beforeend', `<div><img src=${imageURL}></div>`);
     }));
 }
