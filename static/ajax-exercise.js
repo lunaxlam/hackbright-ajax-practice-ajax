@@ -5,7 +5,7 @@
 function showFortune(evt) {
   // Go to this route and get the Response object
   fetch('/fortune')
-    // Convert the Response object into only text
+    // From the Response object, get the text of the Response object
     .then(response => response.text()
     // Assign the text form of the Response object ('data) as the innerHTML
     .then(data => {
@@ -33,7 +33,7 @@ function showWeather(evt) {
 
   // Go to this URL and get the Response object
   fetch(`${url}?${queryString}`)
-    // Convert the response object into JSON
+    // From the Response object, get the JSON of the Response object
     .then(response => response.json())
     .then(data => {
       console.log(data)
