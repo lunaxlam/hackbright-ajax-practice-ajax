@@ -14,3 +14,7 @@ h2 {
   /* use this if an ERROR code was returned */
   color: red;
 }
+
+p.order_msg {  
+  padding-top: 20px;
+}
