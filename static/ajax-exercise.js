@@ -65,7 +65,15 @@ function orderMelons(evt) {
     .then(response => response.json())
     .then(data => {
       console.log(data['msg']);
-      document.querySelector('#order-status').innerHTML = `<p class="order_msg">${data['msg']}</p>`
+
+      if (data['code'] === 'ERROR') {
+        document.querySelector('#order-status').classList.add('order-error');
+        document.querySelector('#order-status').innerHTML = `<p class="order_msg">${data['msg']}</p>`
+      }
+      else {
+        document.querySelector('#order-status').classList.remove('order-error');
+        document.querySelector('#order-status').innerHTML = `<p class="order_msg">${data['msg']}</p>`
+      }
     });
 
 
