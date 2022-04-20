@@ -14,6 +14,7 @@ function showFortune(evt) {
     }));
 }
 
+// Call the addEventListener 
 document.querySelector('#get-fortune-button').addEventListener('click', showFortune);
 
 // PART 2: SHOW WEATHER
@@ -74,3 +75,18 @@ function orderMelons(evt) {
 }
 
 document.querySelector('#order-form').addEventListener('submit', orderMelons);
+
+// Dog Challenge
+
+function showDog(evt) {
+  fetch('https://dog.ceo/api/breeds/image/random')
+    // From the Response object, get the text of the Response object
+    .then(response => response.json()
+    // Assign the text form of the Response object ('data) as the innerHTML
+    .then(data => {
+      const imageURL = data.message;
+      document.querySelector('#dog-image').insertAdjacentHTML('beforeend', `<div><img src=${imageURL}></div>`);
+    }));
+}
+
+document.querySelector('#get-dog-image').addEventListener('click', showDog);
