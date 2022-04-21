@@ -15,6 +15,6 @@ h2 {
   color: red;
 }
 
-p.msg {
-  margin-top: 10px;
+p.order_msg {  
+  padding-top: 20px;
 }

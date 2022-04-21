@@ -8,6 +8,8 @@ import random
 
 from flask import Flask, request, render_template, jsonify
 
+import requests
+
 app = Flask(__name__)
 
 FORTUNES = [
