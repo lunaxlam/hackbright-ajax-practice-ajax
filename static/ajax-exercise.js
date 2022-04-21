@@ -28,7 +28,7 @@ function showWeather(evt) {
   const zipcode = document.querySelector('#zipcode-field').value;
   // Example of what the URL should look like: weather.json?zipcode=98000
   // Create the query string with the given value and convert toString() if necessary
-  const queryString = new URLSearchParams({zipcode}).toString();
+  const queryString = new URLSearchParams({'zipcode' : zipcode}).toString();
 
 
   // Go to this URL and get the Response object
@@ -64,6 +64,10 @@ function orderMelons(evt) {
     .then(response => response.json())
     .then(data => {
       console.log(data['msg']);
+    
+    
+      // TODO: show the result message after your form
+      // TODO: if the result code is ERROR, make it show up in red (see our CSS!)
 
       if (data['code'] === 'ERROR') {
         document.querySelector('#order-status').classList.add('order-error');
@@ -74,20 +78,19 @@ function orderMelons(evt) {
         document.querySelector('#order-status').innerHTML = `<p class="order_msg">${data['msg']}</p>`;
       }
     });
-
-
-  // TODO: show the result message after your form
-  // TODO: if the result code is ERROR, make it show up in red (see our CSS!)
 }
 
 document.querySelector('#order-form').addEventListener('submit', orderMelons);
 
+
 // FURTHER STUDY: SHOW A DOG
 
 function showDog(evt) {
+  evt.preventDefault();
+  
   fetch('https://dog.ceo/api/breeds/image/random')
     // From the Response object, get the JSON of the Response object
-    .then(response => response.json())
+    .then(req => req.json())
     // From the JSON access the value of the .message property
     .then(data => {
       const imageURL = data.message;
