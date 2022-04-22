@@ -10,8 +10,9 @@ function showFortune(evt) {
     // Assign the text form of the Response object ('data) as the innerHTML
     .then(data => {
       document.querySelector('#fortune-text').innerHTML = data;
-    });
-};
+    }
+    )
+}
 
 // Define the Event Listener
 document.querySelector('#get-fortune-button').addEventListener('click', showFortune);
@@ -39,8 +40,8 @@ function showWeather(evt) {
       console.log(data);
       // Set the innerHTML as the value at data['forecast']
       document.querySelector('#weather-info').innerHTML = data['forecast'];
-    });
-};
+    })
+}
 
 document.querySelector('#weather-form').addEventListener('submit', showWeather);
 
@@ -73,7 +74,7 @@ function orderMelons(evt) {
         document.querySelector('#order-status').classList.remove('order-error');
         document.querySelector('#order-status').innerHTML = `<p class="order_msg">${data['msg']}</p>`;
       }
-    });
+    })
 
 
   // TODO: show the result message after your form
